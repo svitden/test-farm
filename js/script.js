@@ -48,6 +48,10 @@ Farm.prototype.process = function (animal) {
     return animal.produce();
 };
 
+Animal.prototype.produce = function () {
+    return new Food();
+};
+
 Chicken.prototype.produce = function () {
     return new Egg();
 };
@@ -56,15 +60,21 @@ Cow.prototype.produce = function () {
     return new Milk();
 };
 
+Food.prototype.eat = function () {
+    return console.log('eating food');
+};
+
 Egg.prototype.eat = function () {
     return console.log('eating egg');
-}
+};
 
 Milk.prototype.eat = function () {
     return console.log('eating milk');
-}
+};
 
 
 var farm = new Farm();
 farm.process(new Chicken()).eat();
 farm.process(new Cow()).eat();
+
+farm.process(new Animal()).eat();

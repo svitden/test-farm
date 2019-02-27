@@ -24,7 +24,11 @@ class Farm {
     }
 }
 
-class Animal {}
+class Animal {
+    produce() {
+        return new Food();
+    }
+}
 
 class Chicken extends Animal {
     constructor() {
@@ -46,7 +50,12 @@ class Cow extends Animal {
     }
 }
 
-class Food { }
+class Food {
+    eat() {
+        return console.log('eating food');
+    }
+}
+
 class Egg extends Food {
     constructor() {
         super();
@@ -56,6 +65,7 @@ class Egg extends Food {
         return console.log('eating egg');
     }
 }
+
 class Milk extends Food {
     constructor() {
         super();
@@ -70,3 +80,5 @@ class Milk extends Food {
 const farm = new Farm();
 farm.process(new Chicken()).eat();
 farm.process(new Cow()).eat();
+
+farm.process(new Animal()).eat();
